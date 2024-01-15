@@ -1,9 +1,10 @@
-package com.gestionLocation.g04.services;
+package com.gestionLocation.g04.services.impl;
 
 import com.gestionLocation.g04.entities.Location;
 import com.gestionLocation.g04.entities.Marque;
 import com.gestionLocation.g04.repositories.LocationRepository;
 import com.gestionLocation.g04.repositories.MarqueRepository;
+import com.gestionLocation.g04.services.MarqueService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
