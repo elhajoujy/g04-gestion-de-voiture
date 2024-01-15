@@ -4,48 +4,46 @@ import com.gestionLocation.g04.entities.Location;
 import com.gestionLocation.g04.entities.Marque;
 import com.gestionLocation.g04.repositories.LocationRepository;
 import com.gestionLocation.g04.repositories.MarqueRepository;
-import jakarta.ws.rs.*;
-import jakarta.ws.rs.core.MediaType;
+import jakarta.websocket.server.PathParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Component
-@Path("/gestionLocation")
+
+@RestController
+@RequestMapping("/gestionLocation")
 public class MarqueRestApiJaxRsApi {
+
     @Autowired
     private MarqueRepository marqueRepository;
-    @Path("/marques")
-    @GET
-    @Produces({MediaType.APPLICATION_JSON})
+
+    @GetMapping("/marques")
     public List<Marque> ListMarques(){
         return marqueRepository.findAll();
     }
 
-    @Path("/marques/{IdMarque}")
-    @GET
-    @Produces({MediaType.APPLICATION_JSON})
+    @GetMapping("/marques/{IdMarque}")
     public Marque getMarque(@PathParam(value = "IdMarque")Long IdMarque){
         return marqueRepository.findById(IdMarque).get();
     }
-    @Path("/gestionLocation")
-    @POST
-    @Produces({MediaType.APPLICATION_JSON})
+
+
+    @PostMapping("/marques")
     public Marque save(Marque marque){
         return marqueRepository.save(marque);
     }
 
-    @Path("/marques/{IdMarque}")
-    @PUT
-    @Produces({MediaType.APPLICATION_JSON})
+
+    @PutMapping("/marques/{IdMarque}")
     public Marque update(Marque marque, @PathParam("IdMarque")Long IdMarque){
         marque.setIdMarque(IdMarque);
         return marqueRepository.save(marque);
     }
-    @Path("/marques/{IdMarque}")
-    @DELETE
-    @Produces({MediaType.APPLICATION_JSON})
+
+
+    @DeleteMapping("/marques/{IdMarque}")
     public void delete(@PathParam("IdMarque")Long IdMarque){
         marqueRepository.deleteById(IdMarque);
 

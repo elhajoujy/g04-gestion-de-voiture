@@ -1,13 +1,14 @@
-package com.gestionLocation.g04.services;
+package com.gestionLocation.g04.services.impl;
 
 import com.gestionLocation.g04.entities.Voiture;
 import com.gestionLocation.g04.repositories.VoitureRepository;
+import com.gestionLocation.g04.services.VoitureService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 @Service
-public class VoitureServiceImpl implements VoitureService{
+public class VoitureServiceImpl implements VoitureService {
 
     @Autowired
     VoitureRepository voitureRepository;

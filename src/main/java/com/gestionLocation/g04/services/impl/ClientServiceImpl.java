@@ -1,13 +1,14 @@
-package com.gestionLocation.g04.services;
+package com.gestionLocation.g04.services.impl;
 
 import com.gestionLocation.g04.entities.Client;
 import com.gestionLocation.g04.repositories.ClientRepository;
+import com.gestionLocation.g04.services.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 @Service
-public class ClientServiceImpl implements ClientService{
+public class ClientServiceImpl implements ClientService {
     @Autowired
     ClientRepository clientRepository;
 
