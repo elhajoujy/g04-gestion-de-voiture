@@ -11,6 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/gestionLocation")
+@CrossOrigin("*")
 public class VoitureRestApiJaxRsApi {
     @Autowired
     private VoitureRepository voitureRepository;
@@ -30,20 +31,22 @@ public class VoitureRestApiJaxRsApi {
 
 
     @PostMapping("/voitures")
-    public Voiture save(Voiture voiture){
+    public Voiture save(@RequestBody Voiture voiture){
+        System.out.println(voiture.toString());
         return voitureRepository.save(voiture);
     }
 
 
     @PutMapping("/voitures/{idvoiture}")
-    public Voiture update(Voiture voiture, @PathParam("idvoiture")Long idvoiture){
+    public Voiture update(
+            @RequestBody Voiture voiture, @PathParam("idvoiture")Long idvoiture){
         voiture.setIdvoiture(idvoiture);
         return voitureRepository.save(voiture);
     }
 
 
     @DeleteMapping("/voitures/{idvoiture}")
-    public void delete(@PathParam("idvoiture")Long idvoiture){
+    public void delete(@PathVariable("idvoiture")Long idvoiture){
         voitureRepository.deleteById(idvoiture);
 
     }

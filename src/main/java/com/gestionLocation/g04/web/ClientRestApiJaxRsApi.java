@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin("*")
 public class ClientRestApiJaxRsApi {
     @Autowired
     private ClientRepository clientRepository;
@@ -27,7 +28,7 @@ public class ClientRestApiJaxRsApi {
         return clientRepository.findById(idclient).get();
     }
 
-    @PostMapping("/gestionLocation")
+    @PostMapping("/clients/save")
     public Client save(Client client) {
         return clientRepository.save(client);
     }

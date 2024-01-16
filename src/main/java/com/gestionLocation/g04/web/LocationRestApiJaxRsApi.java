@@ -5,23 +5,32 @@ import com.gestionLocation.g04.entities.Client;
 import com.gestionLocation.g04.entities.Location;
 import com.gestionLocation.g04.repositories.ClientRepository;
 import com.gestionLocation.g04.repositories.LocationRepository;
+import com.gestionLocation.g04.services.LocationService;
 import jakarta.websocket.server.PathParam;
 //import jakarta.ws.rs.*;
 //import jakarta.ws.rs.core.MediaType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 
-@RequestMapping("/gestionLocation")
 @RestController
+@RequestMapping("/gestionLocation")
+@CrossOrigin("*")
 public class LocationRestApiJaxRsApi {
+
     @Autowired
     private LocationRepository locationRepository;
+
+    //   @Autowired
+    //   private LocationService locationService;
+
     @GetMapping("/locations")
     public List<Location> ListLocations(){
+//        return this.locationService.getAllLocations();
         return locationRepository.findAll();
     }
 
@@ -31,7 +40,9 @@ public class LocationRestApiJaxRsApi {
         return locationRepository.findById(idLocation).get();
     }
 
-    @PostMapping("/gestionLocation")
+
+//    http://localhost:8080/gestionLocation/gestionLocation
+    @PostMapping("")
     public Location save(Location location){
         return locationRepository.save(location);
     }

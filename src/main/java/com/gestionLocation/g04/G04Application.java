@@ -18,6 +18,10 @@ public class G04Application {
 	CommandLineRunner start(VoitureRepository voitureRepository){
 		return args -> {
 			voitureRepository.save(new Voiture(123456789L,"Dacia","Jaune","RRRR",1000.00));
+			voitureRepository.save(new Voiture(123456789L,"Dacia","Jaune","RRRR",1000.00));
+			voitureRepository.save(new Voiture(123456789L,"Dacia","Jaune","RRRR",1000.00));
+			voitureRepository.save(new Voiture(123456789L,"Dacia","Jaune","RRRR",1000.00));
+			voitureRepository.save(new Voiture(123456789L,"Dacia","Jaune","RRRR",1000.00));
 			voitureRepository.save(new Voiture(123456780L,"Toyota","Rouge","CCCC",5000.00));
 			voitureRepository.save(new Voiture(12345678900L,"Touareg","JVert","DDDD",3000.00));
 			voitureRepository.findAll().forEach(voiture -> {

@@ -14,6 +14,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/gestionLocation")
+@CrossOrigin("*")
 public class MarqueRestApiJaxRsApi {
 
     @Autowired

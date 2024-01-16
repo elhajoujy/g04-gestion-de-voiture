@@ -9,8 +9,10 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 @Service
 public class ClientServiceImpl implements ClientService {
+
     @Autowired
     ClientRepository clientRepository;
+
 
     @Override
     public Client saveClient(Client client) {

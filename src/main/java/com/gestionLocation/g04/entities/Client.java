@@ -5,9 +5,9 @@ import jakarta.persistence.*;
 import java.util.Set;
 
 @Entity
-
 public class Client {
-    @Id  @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idclient;
     private String nameclient;
     private String cinclient;
@@ -16,6 +16,7 @@ public class Client {
 
     @OneToMany(mappedBy = "client")
     private Set<Location> location;
+
 
     public Client() {
         super();
